@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Создать задачу</title>
+</head>
+<body>
+    <h1>Создать задачу</h1>
+    <form action="{{ url_for('create') }}" method="POST">
+        <label for="title">Заголовок:</label>
+        <input type="text" id="title" name="title" required><br>
+        <label for="description">Описание:</label>
+        <textarea id="description" name="description" rows="4" required></textarea><br>
+        <label for="deadline">Срок:</label>
+        <input type="date" id="deadline" name="deadline" required><br>
+        <label for="priority">Приоритет:</label>
+        <select id="priority" name="priority" required>
+            <option value="Низкий">Низкий</option>
+            <option value="Средний">Средний</option>
+            <option value="Высокий">Высокий</option>
+        </select><br>
+        <button type="submit">Создать</button>
+    </form>
+</body>
+</html>

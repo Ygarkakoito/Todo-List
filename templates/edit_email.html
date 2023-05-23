@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменение электронной почты</title>
+</head>
+<body>
+    <h2>Изменение электронной почты</h2>
+    <form action="/update_email" method="post">
+        <div class="form-group">
+            <label for="email">Новая электронная почта:</label>
+            <input type="email" class="form-control" id="email" name="email" value="{{ email }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+    </form>
+</body>
+</html>

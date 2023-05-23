@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Редактировать задачу</title>
+</head>
+<body>
+    <h1>Редактировать задачу</h1>
+    <form action="{{ url_for('edit', task_id=task.id) }}" method="POST">
+        <label for="title">Заголовок:</label>
+        <input type="text" id="title" name="title" value="{{ task.title }}" required><br>
+        <label for="description">Описание:</label>
+        <textarea id="description" name="description" rows="4" required>{{ task.description }}</textarea><br>
+        <label for="deadline">Срок:</label>
+        <input type="date" id="deadline" name="deadline" value="{{ task.deadline }}" required><br>
+        <label for="priority">Приоритет:</label>
+        <select id="priority" name="priority" required>
+            <option value="Низкий" {% if task.priority =='Низкий' %}selected{% endif %}>Низкий</option>
+            <option value="Средний" {% if task.priority =='Средний' %}selected{% endif %}>Средний</option>
+            <option value="Высокий" {% if task.priority =='Высокий' %}selected{% endif %}>Высокий</option>
+        </select><br>
+        <button type="submit">Сохранить</button>
+    </form>
+</body>
+</html>

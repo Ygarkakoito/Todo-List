@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Личный аккаунт</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Личный аккаунт</h1>
+        <h2>Добро пожаловать, {{ user[1] }}</h2>
+
+        <h3>Ваши данные:</h3>
+        <p>Имя пользователя: {{ user[1] }}</p>
+        <p>Email: {{ user[3] }}</p>
+
+        <h2>Добавить электронную почту</h2>
+        <form action="/add_email" method="post">
+          <div class="form-group">
+            <label for="email">Электронная почта:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Добавить</button>
+        </form>
+
+        <h3>Список ваших задач:</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Задача</th>
+                    <th>Дата создания</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ task[2] }}</td>
+                    <td>{{ task[3] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="/" class="btn btn-secondary mt-3 float-right">Обратно</a>
+    </div>
+</body>
+</html>

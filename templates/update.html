@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Изменение задачи</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Изменение задачи</h1>
+        <form action="/update/{{ task[0] }}" method="post">
+            <div class="form-group">
+                <label for="title">Задача:</label>
+                <input type="text" class="form-control" id="title" name="title" value="{{ task[2] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="deadline">Срок выполнения:</label>
+                <input type="date" class="form-control" id="deadline" name="deadline" value="{{ task[4] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="priority">Приоритет:</label>
+                <select class="form-control" id="priority" name="priority" required>
+                    <option value="1" {% if task[5] == 1 %}selected{% endif %}>Низкий</option>
+                    <option value="2" {% if task[5] == 2 %}selected{% endif %}>Средний</option>
+                    <option value="3" {% if task[5] == 3 %}selected{% endif %}>Высокий</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+        </form>
+        <a href="/" class="btn btn-secondary mt-3">Отмена</a>
+    </div>
+</body>
+</html>
